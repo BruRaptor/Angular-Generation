@@ -1,0 +1,13 @@
+#img-bg{
+  background-image: url(../../assets/img/imgblog.jpg);
+  min-height: 50vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.fs-50{
+  font-size: 50pt;
+}
+.fs-20{
+  font-size: 20pt;
+}

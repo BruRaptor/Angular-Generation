@@ -18,7 +18,7 @@ export class CadastrarComponent implements OnInit {
 
   constructor(
 
-    private servicoDeAutenticacao: AuthService,
+    public servicoDeAutenticacao: AuthService,
     private route: Router,
     private alertas: AlertasService
 

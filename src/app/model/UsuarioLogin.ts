@@ -5,5 +5,5 @@ export class UsuarioLogin{
   public senha: string;
   public foto: string;
   public token: string;
-  public Tipo: string;
+  public tipo: string;
 }

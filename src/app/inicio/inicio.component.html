@@ -1,165 +1,336 @@
 <div class="conteiner-fluid">
-
-<div class="row bg-secondary d-flex align-items-center">
-  <div class="col-md-6">
-
-    <div class="row d-flex justify-content-center">
-        <div class=" col-md-6 text-white">
-            <h1 class="fs-54">Seja bem vindo(a)!</h1>
-            <h5 class="fs-18">Expresse aqui os seus pensamentos e opniões!</h5>
+  <div class="row bg-secondary d-flex align-items-center">
+    <div class="col-md-6">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6 text-white">
+          <h1 class="fs-54">Seja bem vindo(a)!</h1>
+          <h5 class="fs-18">Expresse aqui os seus pensamentos e opniões!</h5>
         </div>
-    </div>
+      </div>
 
-        <div class="row d-flex justify-content-center mt-3 mb-5">
-          <div class="col-md-6">
-            <button class="btn btn-light mr-2" data-toggle="modal" data-target="#novaPostagem">Nova Postagem</button>
-            <a class="btn btn-outline-light" href="#nav-tabContent">Ver Postagens</a>
-          </div>
+      <div class="row d-flex justify-content-center mt-3 mb-5">
+        <div class="col-md-6">
+          <button
+            class="btn btn-light mr-2"
+            data-toggle="modal"
+            data-target="#novaPostagem"
+          >
+            Nova Postagem
+          </button>
+
+
+          <a *ngIf="authService.adm()" class="btn btn-outline-light" href="#nav-tabContent"
+            >Ver Postagens</a
+          >
         </div>
+      </div>
     </div>
 
     <div class="col-md-6 d-flex justify-content-center">
-      <img src="https://i.imgur.com/cJX4ncZ.png" alt="" width="500px" height="500px">
+      <img
+        src="https://i.imgur.com/cJX4ncZ.png"
+        alt=""
+        width="500px"
+        height="500px"
+      />
     </div>
   </div>
 </div>
 
-
 <div class="continer mb-5 mt-5" id="postagens">
-
   <nav>
-    <div class="nav nav-tabs font-weight-bold d-flex justify-content-center" id="nav-tab" role="tablist">
+    <div
+      class="nav nav-tabs font-weight-bold d-flex justify-content-center"
+      id="nav-tab"
+      role="tablist"
+    >
+      <a
+        class="nav-link active text-secondary"
+        id="nav-todasPostagens-tab"
+        data-toggle="tab"
+        href="#nav-todasPostagens"
+        role="tab"
+        aria-controls="nav-todasPostagens"
+        aria-selected="true"
+        >Todas as Postagens</a
+      >
 
-      <a class="nav-link active text-secondary" id="nav-todasPostagens-tab" data-toggle="tab" href="#nav-todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as Postagens</a>
+      <a
+        (click)="findByIdUsuario()"
+        class="nav-link text-secondary"
+        id="nav-minhasPostagens-tab"
+        data-toggle="tab"
+        href="#nav-minhasPostagens"
+        role="tab"
+        aria-controls="nav-minhasPostagens"
+        aria-selected="false"
+        >Minhas Postagens</a
+      >
 
-      <a (click)="findByIdUsuario()" class="nav-link text-secondary" id="nav-minhasPostagens-tab" data-toggle="tab" href="#nav-minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
-
-      <a class="nav-link text-secondary" id="nav-postagemTema-tab" data-toggle="tab" href="#nav-postagemTema" role="tab" aria-controls="nav-postagemTema" aria-selected="false">Postagem por Tema</a>
-
+      <a
+        class="nav-link text-secondary"
+        id="nav-postagemTema-tab"
+        data-toggle="tab"
+        href="#nav-postagemTema"
+        role="tab"
+        aria-controls="nav-postagemTema"
+        aria-selected="false"
+        >Postagem por Tema</a
+      >
     </div>
   </nav>
 
   <!-- Card todas Postagens -->
   <div class="tab-content mt-4" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
+    <div
+      class="tab-pane fade show active"
+      id="nav-todasPostagens"
+      role="tabpanel"
+      aria-labelledby="nav-todasPostagens-tab"
+    >
+      <!-- Barra de pesquisa -->
+      <div class="row d-flex justify-content-center mt-4 mb-4">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="titulo"
+              placeholder="Digite um titulo de postagem para pesquisa."
+              [(ngModel)]="tituloPost"
+              (keyup)="findByTituloPostagem()"
+            />
+          </div>
+        </div>
+      </div>
 
       <div class="card-columns">
-        <div class="card text-center"
-        *ngFor="let item of listaPostagens | orderBy: key: reverse">
+        <div
+          class="card text-center"
+          *ngFor="let item of listaPostagens | orderBy: key:reverse"
+        >
           <div class="card-body">
-            <h5 class="card-title m-0">{{item.titulo}}</h5>
-            <small class="text-muted">Tema: {{item.tema.descricao}}</small> <!-- mostrando tema -->
-            <p class="card-text mt-3">{{item.texto}}</p>
-            <p class="card-text"><small class="text-muted">
-              <!-- modificando data e hora -->
-              {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
-            </small></p>
+            <h5 class="card-title m-0">{{ item.titulo }}</h5>
+            <small class="text-muted">Tema: {{ item.tema.descricao }}</small>
+            <!-- mostrando tema -->
+            <p class="card-text mt-3">{{ item.texto }}</p>
+            <p class="card-text">
+              <small class="text-muted">
+                <!-- modificando data e hora -->
+                {{ item.data | date: "dd/MM/yyyy" }} às
+                {{ item.data | date: "HH:mm" }}
+              </small>
+            </p>
 
-            <p class="card-text"><small class="text-muted">
-              Postado por: {{item.usuario.nome}}
-            </small></p>
-            <img src="{{item.usuario.foto}}" alt="imagem do usuário" width="50px" height="50px" class="img-fluid rounded-circle">
-
+            <p class="card-text">
+              <small class="text-muted">
+                Postado por: {{ item.usuario.nome }}
+              </small>
+            </p>
+            <img
+              src="{{ item.usuario.foto }}"
+              alt="imagem do usuário"
+              width="50px"
+              height="50px"
+              class="img-fluid rounded-circle"
+            />
           </div>
         </div>
       </div>
     </div>
 
     <!-- Card minhas Postagens -->
-    <div class="tab-pane fade" id="nav-minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
-
+    <div
+      class="tab-pane fade"
+      id="nav-minhasPostagens"
+      role="tabpanel"
+      aria-labelledby="nav-minhasPostagens-tab"
+    >
       <div class="card-columns">
-        <div class="card text-center"
-        *ngFor="let item of usuario.postagem | orderBy: key: reverse">
+        <div
+          class="card text-center"
+          *ngFor="let item of usuario.postagem | orderBy: key:reverse"
+        >
           <div class="card-body">
-            <h5 class="card-title m-0">{{item.titulo}}</h5>
-            <small class="text-muted">Tema: {{item.tema.descricao}}</small> <!-- mostrando tema -->
-            <p class="card-text mt-3">{{item.texto}}</p>
-            <p class="card-text"><small class="text-muted">
-              <!-- modificando data e hora -->
-              {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
-            </small></p>
+            <h5 class="card-title m-0">{{ item.titulo }}</h5>
+            <small class="text-muted">Tema: {{ item.tema.descricao }}</small>
+            <!-- mostrando tema -->
+            <p class="card-text mt-3">{{ item.texto }}</p>
+            <p class="card-text">
+              <small class="text-muted">
+                <!-- modificando data e hora -->
+                {{ item.data | date: "dd/MM/yyyy" }} às
+                {{ item.data | date: "HH:mm" }}
+              </small>
+            </p>
 
-            <p class="card-text"><small class="text-muted">
-              Postado por: {{usuario.nome}}
-            </small></p>
-            <img src="{{usuario.foto}}" alt="imagem do usuário" width="50px" height="50px" class="img-fluid rounded-circle">
+            <p class="card-text">
+              <small class="text-muted">
+                Postado por: {{ usuario.nome }}
+              </small>
+            </p>
+            <img
+              src="{{ usuario.foto }}"
+              alt="imagem do usuário"
+              width="50px"
+              height="50px"
+              class="img-fluid rounded-circle"
+            />
 
             <!-- Botões -->
-            <a [routerLink]="['/postagem-edit', item.id]" class="text-success ml-3 mr-3" href="">Editar</a>
+            <a
+              [routerLink]="['/postagem-edit', item.id]"
+              class="text-success ml-3 mr-3"
+              href=""
+              >Editar</a
+            >
 
-            <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a>
-
+            <a
+              [routerLink]="['/postagem-delete', item.id]"
+              class="text-danger"
+              href=""
+              >Apagar</a
+            >
           </div>
         </div>
       </div>
     </div>
-
 
     <!-- Card Postagem por Tema -->
-    <div class="tab-pane fade" id="nav-postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
-
-      <div class="card-columns"
-      *ngFor="let tema of listaTemas  | orderBy: key: reverse">
-        <div class="card text-center" *ngFor="let item of tema.postagem">
-          <div class="card-body">
-            <h5 class="card-title m-0">{{item.titulo}}</h5>
-            <p class="card-text mt-3">{{item.texto}}</p>
-            <p class="card-text"><small class="text-muted">
-              <!-- modificando data e hora -->
-              {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
-            </small></p>
-
-            <p class="card-text"><small class="text-muted">
-              Postado por: {{item.usuario.nome}}
-            </small></p>
-            <img src="{{item.usuario.foto}}" alt="imagem do usuário" width="50px" height="50px" class="img-fluid rounded-circle">
-
+    <div
+      class="tab-pane fade"
+      id="nav-postagemTema"
+      role="tabpanel"
+      aria-labelledby="nav-postagemTema-tab"
+    >
+      <!-- Barra de pesquisa -->
+      <div class="row d-flex justify-content-center mt-4 mb-4">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="titulo"
+              placeholder="Digite um tema para pesquisar."
+              [(ngModel)]="nomeTema"
+              (keyup)="findByNomeTema()"
+            />
           </div>
         </div>
       </div>
 
+      <div
+        class="card-columns"
+        *ngFor="let tema of listaTemas | orderBy: key:reverse"
+      >
+        <div class="card text-center" *ngFor="let item of tema.postagem">
+          <div class="card-body">
+            <h5 class="card-title m-0">{{ item.titulo }}</h5>
+            <p class="card-text mt-3">{{ item.texto }}</p>
+            <p class="card-text">
+              <small class="text-muted">
+                <!-- modificando data e hora -->
+                {{ item.data | date: "dd/MM/yyyy" }} às
+                {{ item.data | date: "HH:mm" }}
+              </small>
+            </p>
+
+            <p class="card-text">
+              <small class="text-muted">
+                Postado por: {{ item.usuario.nome }}
+              </small>
+            </p>
+            <img
+              src="{{ item.usuario.foto }}"
+              alt="imagem do usuário"
+              width="50px"
+              height="50px"
+              class="img-fluid rounded-circle"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
 </div>
 
-
 <!-- Modal -->
-<div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="modal-dialog modal-dialog-centered" aria-hidden="true">
+<div
+  class="modal fade"
+  id="novaPostagem"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modal-dialog modal-dialog-centered"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modal-dialog modal-dialog-centered">Nova Postagem</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title" id="modal-dialog modal-dialog-centered">
+          Nova Postagem
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-
         <div class="form-group">
           <label for="titulo">Título</label>
-          <input [(ngModel)]="postagem.titulo" type="text" class="form-control" id="titulo" placeholder="Digite o título">
+          <input
+            [(ngModel)]="postagem.titulo"
+            type="text"
+            class="form-control"
+            id="titulo"
+            placeholder="Digite o título"
+          />
         </div>
 
         <div class="form-group">
           <label for="texto">Texto</label>
-          <textarea [(ngModel)]="postagem.texto" class="form-control" name="texto" id="texto" rows="3"></textarea>
+          <textarea
+            [(ngModel)]="postagem.texto"
+            class="form-control"
+            name="texto"
+            id="texto"
+            rows="3"
+          ></textarea>
         </div>
 
         <div class="form-group">
-          <label for="texto">Escolha um tema ou  <a data-dismiss="modal" routerLink="/tema">cadastre um novo</a>: </label>
-          <select name="tema" id="tema" class="form-control" [(ngModel)]="idTema" (change)="findByIdTema()">
-            <option *ngFor="let item of listaTemas" value="{{item.id}}">
-              {{item.descricao}}
+          <label for="texto"
+            >Escolha um tema ou
+            <a data-dismiss="modal" routerLink="/tema">cadastre um novo</a>:
+          </label>
+          <select
+            name="tema"
+            id="tema"
+            class="form-control"
+            [(ngModel)]="idTema"
+            (change)="findByIdTema()"
+          >
+            <option *ngFor="let item of listaTemas" value="{{ item.id }}">
+              {{ item.descricao }}
             </option>
           </select>
         </div>
-
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success"(click)="publicar()" data-dismiss="modal">Publicar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="publicar()"
+          data-dismiss="modal"
+        >
+          Publicar
+        </button>
       </div>
     </div>
   </div>

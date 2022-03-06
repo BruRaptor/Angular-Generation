@@ -14,6 +14,7 @@ export class PostagemService {
     headers: new HttpHeaders().set('Authorization', environment.token),
   };
 
+// All Gets
   getAllPostagens(): Observable<Postagem[]> {
     return this.http.get<Postagem[]>(
       'https://blogpessoalbruno.herokuapp.com/postagens',
@@ -28,6 +29,11 @@ export class PostagemService {
     );
   }
 
+  getByTituloPostagem(titulo: string):Observable<Postagem[]>{
+    return this.http.get<Postagem[]>(`https://blogpessoalbruno.herokuapp.com/postagens/titulo/${titulo}`, this.token)
+  }
+
+// Post
   postPostagem(postagem: Postagem): Observable<Postagem> {
     return this.http.post<Postagem>(
       'https://blogpessoalbruno.herokuapp.com/postagens',
@@ -36,6 +42,7 @@ export class PostagemService {
     );
   }
 
+// Put
   putPostagem(postagem: Postagem): Observable<Postagem> {
     return this.http.put<Postagem>(
       'https://blogpessoalbruno.herokuapp.com/postagens',
@@ -44,6 +51,7 @@ export class PostagemService {
     );
   }
 
+// Delete
   deletePostagem(id: number) {
     return this.http.delete(
       `https://blogpessoalbruno.herokuapp.com/postagens/${id}`,

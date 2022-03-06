@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 
 
@@ -18,7 +19,8 @@ export class CadastrarComponent implements OnInit {
   constructor(
 
     private servicoDeAutenticacao: AuthService,
-    private route: Router
+    private route: Router,
+    private alertas: AlertasService
 
     ) { }
 
@@ -38,12 +40,12 @@ export class CadastrarComponent implements OnInit {
     this.usuario.tipo = this.tipoUser
 
     if(this.usuario.senha != this.confirmarSenha){
-      alert('As senhas não conferem!')
+      this.alertas.showAlertDanger('As senhas não conferem!')
     } else{
       this.servicoDeAutenticacao.cadastrar(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
         this.route.navigate(['/entrar'])
-        alert('Parabéns, usuário criado com sucesso!')
+        this.alertas.showAlertSuccess('Parabéns, usuário criado com sucesso!')
       })
     }
   }

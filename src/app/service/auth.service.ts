@@ -1,4 +1,3 @@
-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -7,47 +6,56 @@ import { Usuario } from '../model/Usuario';
 import { UsuarioLogin } from '../model/UsuarioLogin';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  constructor(private http: HttpClient) {}
 
-  constructor(
-    private http:HttpClient
-    ) { }
+  token = {
+    headers: new HttpHeaders().set('Authorization', environment.token),
+  };
 
-
-      token = {
+  refreshToken() {
+    this.token = {
       headers: new HttpHeaders().set('Authorization', environment.token),
     };
-
-      refreshToken(){
-        this.token = {
-          headers: new HttpHeaders().set('Authorization', environment.token),
-        };
-      }
-
-  entrar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin>{
-    return this.http.post<UsuarioLogin>('https://blogpessoalbruno.herokuapp.com/usuarios/logar', usuarioLogin)
   }
 
-  cadastrar(usuario: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>('https://blogpessoalbruno.herokuapp.com/usuarios/cadastrar', usuario)
+  entrar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin> {
+    return this.http.post<UsuarioLogin>(
+      'https://blogpessoalbruno.herokuapp.com/usuarios/logar',
+      usuarioLogin
+    );
   }
 
-  getByIdUsuario(id: number): Observable<Usuario>{
-    return this.http.get<Usuario>(`https://blogpessoalbruno.herokuapp.com/usuarios/${id}`, this.token)
+  cadastrar(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(
+      'https://blogpessoalbruno.herokuapp.com/usuarios/cadastrar',
+      usuario
+    );
   }
 
-  attUsuario(usuario: Usuario): Observable<Usuario>{
-    return this.http.put<Usuario>('https://blogpessoalbruno.herokuapp.com/usuarios/atualizar', usuario,this.token)
+  getByIdUsuario(id: number): Observable<Usuario> {
+    return this.http.get<Usuario>(
+      `https://blogpessoalbruno.herokuapp.com/usuarios/${id}`,
+      this.token
+    );
+  }
+
+  attUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(
+      'https://blogpessoalbruno.herokuapp.com/usuarios/atualizar',
+      usuario,
+      this.token
+    );
   }
 
   logado() {
-    let ok: boolean = false
+    let ok: boolean = false;
 
-    if(environment.token !=''){
-      ok = true
+    if (environment.token != '') {
+      ok = true;
     }
-    return ok
+    return ok;
   }
 }

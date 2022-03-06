@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { OrderModule } from 'ngx-order-pipe';
 
 // Componentes
 import { AppComponent } from './app.component';
@@ -43,7 +44,8 @@ import { AlertasComponent } from './alertas/alertas.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ModalModule.forRoot() /* ele é .forRoot para ser acessado por toda aplicação */
+    ModalModule.forRoot(), /* ele é .forRoot para ser acessado por toda aplicação */
+    OrderModule  /*ele é o que da ordem nas postagens*/
   ],
   providers: [{
     provide: LocationStrategy,

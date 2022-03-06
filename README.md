@@ -1,27 +1,42 @@
-# BlogPessoal
+# 📝BLOGPESSOAL
+<h2>Sobre o Projeto:</h2>
+<p>No BLOGPESSOAL é possível:</p>
+<p>✅ - Realizar o cadastro de um usuário, onde é necessário preencher os campos de nome, usuário, link da foto, senha, confirmação de senha e tipo de usuário.</p>
+<p>✅ - Efetuar o login onde o usuário é direcionado para a página de início e pode realizar uma nova postagem.</p>
+<p>✅ - Realizar postagens, preenchendo os campos de título, texto e escolher um tema.</p>
+<p>✅ - Caso não houver o tema desejado, o usuário pode cadastrar um novo tema.</p>
+<p>✅ - Na página inicial há algumas opções como:</p>
+<p>✅ - Todas as postagens: Onde mostra todas as postagens do Blog.</p>
+<p>✅ - Minhas postagens: Onde mostra as postagens feitas pelo usuário, dando a opção de editar ou excluir.</p>
+<p>✅ - Postagem por tema: Onde irá ficar separado por tema as postagens.</p>
+<p>✅ - Ao lado da foto do usuário existe um editar no qual ele poderá editar informações de cadastro, precisando apenas confirmar a senha.</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
+<div>
+<img src="https://i.imgur.com/Pg9xVT7.png" alt="" width="300px" height="200px">
+<img src="https://i.imgur.com/rFbwBF9.png" alt="" width="300px" height="200px">
+<img src="https://i.imgur.com/X4d1wNj.png" alt="" width="300px" height="200px">
+<img src="https://i.imgur.com/GMK74uw.png" alt="" width="300px" height="200px">
+<img src="https://i.imgur.com/MTDj1xG.png" alt="" width="300px" height="200px">
+<img src="https://i.imgur.com/vrDDFcc.png" alt="" width="300px" height="200px">
+</div>
 
-## Development server
+<h2>Tecnologias usadas:</h2>
+<div>
+<img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="" width="120px" height="35px">
+<img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" alt="" width="120px" height="35px">
+<img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white" alt="" width="120px" height="35px">
+<img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" alt="" width="120px" height="35px">
+<img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=whit" alt="" width="120px" height="35px">
+  
+<p>❇️ - Utilizado no Back-End Java, SpringBoot local API Rest.</p>
+  <p>Após todos os testes foi feito um deploy no Heroku.</p>
+<p>❇️ - Utilizado no Front-End HTML5, CSS3, TypeScript, BootStrap, Angular.</p>
+  <p>Estou terminando alguns ajustes finais para o  deploy.</p>
+</div>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<h2>Contato:</h2>
+<div>
+  <a href="https://linktr.ee/BruRaptor" target="_blank"><img src="https://img.icons8.com/color/480/linktree.png"alt="" width="70px" height="70px"></a>
+  <a href="https://www.linkedin.com/in/bruno-kyo/" target="_blank"><img src="https://www.logo.wine/a/logo/LinkedIn/LinkedIn-Icon-Logo.wine.svg"alt="" width="70px" height="70px"></a>
+  <a href="https://www.instagram.com/brutechofc/" target="_blank"><img src="https://www.logo.wine/a/logo/Instagram/Instagram-Logo.wine.svg"alt="" width="70px" height="70px"></a>
+</div>

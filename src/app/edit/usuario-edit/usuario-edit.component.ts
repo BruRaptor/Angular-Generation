@@ -50,7 +50,7 @@ export class UsuarioEditComponent implements OnInit {
     if (this.usuario.senha != this.confirmarSenha) {
       alert('As senhas não conferem!');
     } else {
-      this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
+      this.authService.attUsuario(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp;
         this.router.navigate(['/inicio']);
         alert('Usuário atualizado com sucesso!');

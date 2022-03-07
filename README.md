@@ -1,25 +1,4 @@
 # 📝BLOGPESSOAL
-<h2>Sobre o Projeto:</h2>
-<p>No BLOGPESSOAL é possível:</p>
-<p>✅ - Realizar o cadastro de um usuário, onde é necessário preencher os campos de nome, usuário, link da foto, senha, confirmação de senha e tipo de usuário.</p>
-<p>✅ - Efetuar o login onde o usuário é direcionado para a página de início e pode realizar uma nova postagem.</p>
-<p>✅ - Realizar postagens, preenchendo os campos de título, texto e escolher um tema.</p>
-<p>✅ - Caso não houver o tema desejado, o usuário pode cadastrar um novo tema.</p>
-<p>✅ - Na página inicial há algumas opções como:</p>
-<p>✅ - Todas as postagens: Onde mostra todas as postagens do Blog.</p>
-<p>✅ - Minhas postagens: Onde mostra as postagens feitas pelo usuário, dando a opção de editar ou excluir.</p>
-<p>✅ - Postagem por tema: Onde irá ficar separado por tema as postagens.</p>
-<p>✅ - Ao lado da foto do usuário existe um editar no qual ele poderá editar informações de cadastro, precisando apenas confirmar a senha.</p>
-
-<div>
-<img src="https://i.imgur.com/Pg9xVT7.png" alt="" width="300px" height="200px">
-<img src="https://i.imgur.com/rFbwBF9.png" alt="" width="300px" height="200px">
-<img src="https://i.imgur.com/X4d1wNj.png" alt="" width="300px" height="200px">
-<img src="https://i.imgur.com/GMK74uw.png" alt="" width="300px" height="200px">
-<img src="https://i.imgur.com/MTDj1xG.png" alt="" width="300px" height="200px">
-<img src="https://i.imgur.com/vrDDFcc.png" alt="" width="300px" height="200px">
-</div>
-
 <h2>Tecnologias usadas:</h2>
 <div>
 <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="" width="120px" height="35px">
@@ -32,6 +11,30 @@
   <p>Após todos os testes foi feito um deploy no Heroku.</p>
 <p>❇️ - Utilizado no Front-End HTML5, CSS3, TypeScript, BootStrap, Angular.</p>
   <p>Estou terminando alguns ajustes finais para o  deploy.</p>
+</div>
+
+<h2>Sobre o Projeto:</h2>
+<p>No BLOGPESSOAL é possível:</p>
+<p>🚩<strong>Usuário:</strong></p>
+<p>✅ - Realizar o cadastro de um usuário, onde é necessário preencher os campos de nome, usuário, link da foto, senha, confirmação de senha.</p>
+<p>✅ - Ao lado da foto do usuário existe um editar no qual ele poderá editar informações de cadastro, precisando apenas confirmar a senha.</p>
+<p>✅ - Efetuar o login onde o usuário é direcionado para a página de início e pode realizar uma nova postagem.</p>
+
+<p>🚩<strong>Postagens:</strong></p>
+<p>✅ - Realizar postagens, preenchendo os campos e selecionando o tema.</p>
+<p>✅ - Alterar ou deletar as postagens que o usuário tenha cadastrado.</p>
+
+<p>🚩<strong>Tema:</strong></p>
+<p>✅ - Postagem de Tema, essa opção é realizada apenas por usuários que tenha a opção de ADM.</p>
+<p>✅ - Alterar ou deletar tema, limitada para usuários que tenha a opção de ADM.</p>
+
+<div>
+<img src="https://i.imgur.com/Pg9xVT7.png" alt="" width="300px" height="200px">
+<img src="https://i.imgur.com/rFbwBF9.png" alt="" width="300px" height="200px">
+<img src="https://i.imgur.com/X4d1wNj.png" alt="" width="300px" height="200px">
+<img src="https://i.imgur.com/GMK74uw.png" alt="" width="300px" height="200px">
+<img src="https://i.imgur.com/MTDj1xG.png" alt="" width="300px" height="200px">
+<img src="https://i.imgur.com/vrDDFcc.png" alt="" width="300px" height="200px">
 </div>
 
 <h2>Contato:</h2>

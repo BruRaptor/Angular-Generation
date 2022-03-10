@@ -12,7 +12,7 @@
 <p>❇️ - Utilizado no Front-End HTML5, CSS3, TypeScript, BootStrap, Angular.</p>
   <p>Estou terminando alguns ajustes finais para o  deploy.</p>
 </div>
-<img src="https://i.imgur.com/0GCOLmd.gif" alt="homem-digitando" width="550px" height="350px">
+<img src="https://i.imgur.com/Hu0mKU8.gif" alt="homem-digitando" width="550px" height="350px">
 <h2>Sobre o Projeto:</h2>
 <p>No BLOGPESSOAL é possível:</p>
 <p>🚩<strong>Usuário:</strong></p>
